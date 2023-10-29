@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import Head from "./components/Head";
+import Foot from "./components/Foot";
 
 const url = 'https://mdblist.p.rapidapi.com/?s=Avengers';
 const options = {
@@ -31,7 +33,8 @@ function App() {
 
   return (
     <div className="App">
-      
+        <Head/>
+        <Foot/>
     </div>
   );
 }
