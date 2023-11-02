@@ -7,13 +7,14 @@ function Header() {
     return ( 
         <div className="header">
             <div className='header__text'>
-                <h4 className="movies__text">Movies</h4>
-                <h4 className="movies__text">Favorites</h4>
+                <a href='#'><h4 className="header__text__movies">Movies</h4></a>
+                <a href=""><h4 className="header__text__movies">Favorites</h4></a>
             </div>
             <img src={apna} alt="error" />
-            <div>
+            <div className='header__text'>
                 <img src={search} alt="err" />
                 <img src={notification} alt="err" />
+                <a href=""><h4 className="header__text__movies fw600">Sign Up</h4></a>
             </div>
         </div>
      );

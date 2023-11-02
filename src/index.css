@@ -1,3 +1,6 @@
+@import url(https://fonts.googleapis.com/css?family=Outfit:100,200,300,regular,500,600,700,800,900);
+@import url(https://fonts.googleapis.com/css?family=Oswald:200,300,regular,500,600,700);
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -22,7 +25,112 @@ code {
 }
 
 .header{
-  max-width: 1200px;
+  max-width: 1250px;
+  margin: 51px auto;
   display: flex;
   justify-content: space-between;
+}
+.header__text{
+  display: flex;
+  column-gap: 40px;
+}
+.header__text__movies{
+  color: #FFF;
+  font-family: Outfit;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.6px;
+}
+
+
+/* main */
+.main{
+  max-width: 1400px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+.main__contentblock{
+  display: flex;
+  flex-direction: column;
+}
+.name{
+  color: #FFF;
+  font-family: Oswald;
+  font-size: 90px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+#description{
+  max-width: 37%;
+  margin-bottom: 23px;
+  color: #FFF;
+  font-family: Outfit;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  opacity: 0.9;
+}
+.stars{
+  display: block;
+  max-width: max-content;
+}
+
+.main__underblock{
+  margin-top: 23px;
+  display: flex;
+  column-gap: 24px;
+  margin-bottom: 45px;
+}
+.WN{
+  display: flex;
+  column-gap: 12px;
+  padding: 14px 22px;
+  border-radius: 41px;
+  background: #FA4776;
+}
+.WatchNow{
+  color: #FFF;
+  font-family: Outfit;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 0.72px;
+}
+.Trailer{
+  display: block;
+  border-radius: 41px;
+  border: 1px solid #FFF;
+  padding: 13px 30px;
+
+  color: #FFF;
+  font-family: Outfit;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 0.72px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* otdelno */
+.fw600{
+  font-weight: 600;
+}
+.fc50{
+  font-size: 50px;
 }
