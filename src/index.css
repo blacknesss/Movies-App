@@ -12,7 +12,17 @@ code {
     monospace;
 }
 
+.App{
+  display: flex;
+  flex-direction: column;
+}
 
 .Head{
   background-image: url(assets/365f6fd1725123369f147ac80ea0c43b.png);
+}
+
+.header{
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
 }
