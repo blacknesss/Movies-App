@@ -33,10 +33,37 @@ code {
   margin: 51px auto;
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
 }
 .header__text{
   display: flex;
   column-gap: 40px;
+  position: relative;
+  align-items: center;
+}
+.search-abs{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 10em;
+  top: 0;
+  width: 150px;
+  border: 1px solid #FFF;
+  border-radius: 25px;
+  padding: 8px;
+  row-gap: 1em;
+
+  color: #FFF;
+  font-family: Outfit;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.6px;
+}
+.search-h1{
+  border-bottom:2px solid #fff;
+  cursor: pointer;
 }
 .header__text__movies{
   white-space: nowrap;
@@ -171,6 +198,16 @@ code {
   backdrop-filter: blur(10px);
   padding: 15px 19px;
 }
+.Double{
+  position: absolute;
+  top: 300px;
+  right: 0;
+  display: none;
+  visibility: visible;
+}
+.arrow{
+  cursor: pointer;
+}
 .sw{
   display: block;
   width: 184px;
@@ -283,6 +320,9 @@ code {
 
 
 
+
+
+
 /* otdelno */
 .fw600{
   font-weight: 600;
@@ -299,6 +339,9 @@ code {
   grid-template-columns: repeat(4, 2fr);
   column-gap: 24px;
   row-gap: 16px;
+}
+.inv{
+  visibility: hidden;
 }
 body::-webkit-scrollbar {
   width: 12px;
