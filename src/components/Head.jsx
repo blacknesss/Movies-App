@@ -1,8 +1,10 @@
+import { useState } from "react";
 import Header from "./Header";
 import Main from "./Main";
 
 
-function Head() {
+function Head({data}) {
+    const [movie, setMovie] = useState([])
 
     const lInvisible = () =>{
         let s = document.querySelector('.search-abs');
@@ -11,10 +13,15 @@ function Head() {
         s.classList.add('inv');
     }
 
+    const handler = (e) =>{
+
+        
+    }
+
     return ( 
         <div className="Head">
-            <Header lInvisible={lInvisible}/>
-            <Main lInvisible={lInvisible}/>
+            <Header lInvisible={lInvisible} handler={handler}/>
+            <Main lInvisible={lInvisible} movie={movie}/>
         </div>
      );
 }

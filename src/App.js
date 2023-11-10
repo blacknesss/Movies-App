@@ -2,14 +2,13 @@ import { useEffect, useState } from "react";
 import Head from "./components/Head";
 import Foot from "./components/Foot";
 
-const url = 'https://mdblist.p.rapidapi.com/?s=Avengers';
-const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': '723ad6ec05mshfb786ab3d93e6c5p18903djsn77e1fedf719a',
-		'X-RapidAPI-Host': 'mdblist.p.rapidapi.com'
-	}
-};
+const url = 'https://api.kinopoisk.dev/v1.4/movie/search?page=1&limit=10&query=Avengers';
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-API-KEY': 'RV930XR-C9NMA9B-HH3QNEC-DM43ZJT'
+        }
+    };
 
 
 function App() {
@@ -33,7 +32,7 @@ function App() {
 
   return (
     <div className="App">
-        <Head/>
+        <Head data={data}/>
         <Foot/>
     </div>
   );

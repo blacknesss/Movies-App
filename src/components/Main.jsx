@@ -8,7 +8,9 @@ import U from '../assets/Rectangle 8.svg';
 import A from '../assets/Rectangle 11.svg';
 import arr from '../assets/ic_round-navigate-next.svg';
 
-function Main({lInvisible}) {
+function Main({lInvisible, movie}) {
+
+
     let offset = 0;
     
     const slider = () =>{
@@ -34,7 +36,7 @@ function Main({lInvisible}) {
     return ( 
         <div className="main">
             <div className='main__contentblock'>
-                <h1 onClick={lInvisible} className='name'>STAR WARS</h1>
+                <h1 onClick={lInvisible} className='name'>{movie.length === 0 ? 'STAR WARS' : movie.name}</h1>
                 <h2 className='name fc50'>THE RISE OF SKYWALKER</h2>
                 <p id='description'>The surviving members of the resistance face the First Order once again, and the legendary conflict between the Jedi and the Sith reaches its peak bringing the Skywalker saga to its end.</p>
                 <a className='stars' href="#"><img className='stars' src={stars} alt="err"/></a>

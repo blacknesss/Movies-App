@@ -8,6 +8,7 @@ import MH from '../assets/5.png';
 import F from '../assets/6.png';
 import TB from '../assets/7.png';
 import TA from '../assets/8.png';
+import { useEffect, useState } from 'react';
 
 
 function Foot() {

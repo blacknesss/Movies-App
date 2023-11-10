@@ -60,10 +60,15 @@ code {
   font-weight: 500;
   line-height: normal;
   letter-spacing: 0.6px;
+  z-index: 99;
+  background-color: #00000073;
 }
 .search-h1{
-  border-bottom:2px solid #fff;
   cursor: pointer;
+  text-transform: uppercase;
+}
+.search-h1:hover{
+  border-bottom:2px solid #fff;
 }
 .header__text__movies{
   white-space: nowrap;
