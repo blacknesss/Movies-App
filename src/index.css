@@ -43,15 +43,10 @@ code {
 }
 .search-abs{
   display: flex;
-  flex-direction: column;
-  position: absolute;
-  right: 10em;
-  top: 0;
-  width: 150px;
+  
   border: 1px solid #FFF;
   border-radius: 25px;
   padding: 8px;
-  row-gap: 1em;
 
   color: #FFF;
   font-family: Outfit;
@@ -66,6 +61,12 @@ code {
 .search-h1{
   cursor: pointer;
   text-transform: uppercase;
+}
+.inp{
+  width: 0;
+}
+.inp-v{
+  width: 100px;
 }
 .search-h1:hover{
   border-bottom:2px solid #fff;

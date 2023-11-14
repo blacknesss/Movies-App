@@ -1,16 +1,26 @@
+import { useState } from 'react';
 import apna from '../assets/ApnaTV.svg';
 import notification from '../assets/Vector.svg';
 import search from '../assets/eva_search-fill.svg';
 
-function Header({lInvisible, handler}) {
-    
 
 
-    const sInvisible = () =>{
-        let list = document.querySelector('.search');
-        let s = document.querySelector('.search-abs');
-        list.classList.add('inv');
-        s.classList.remove('inv');
+function Header({data, setName}) {
+    const [movie, setMovie]=useState('');
+
+    const handlerChange = (e)=>{
+            setMovie(e.currentTarget.value)
+        }
+        
+    const handlerSubmit = (e) =>{
+        e.preventDefault()
+        if (movie.length > 0){
+            let name = movie
+            setName(name)}
+        setMovie('')
+
+        let inp = document.querySelector('.inp');
+        inp.classList.toggle('inp-v')
     }
 
     
@@ -23,15 +33,11 @@ function Header({lInvisible, handler}) {
             </div>
             <a href='/'><img src={apna} alt="error" /></a>
             <div className='header__text'>
-                <div onClick={lInvisible} className='search-abs inv'>
-                    <h1 onClick={(e) => handler(e)} className='search-h1'>Captain America</h1>
-                    <h1 onClick={(e) => handler(e)} className='search-h1'>Star Wars</h1>
-                    <h1 onClick={(e) => handler(e)} className='search-h1'>Star Wars</h1>
-                    <h1 onClick={(e) => handler(e)} className='search-h1'>Uncharted</h1>
-                    <h1 onClick={(e) => handler(e)} className='search-h1'>Spider-man</h1>
-                    <h1 onClick={(e) => handler(e)} className='search-h1'>Avengers</h1>
+                <div className='search-abs '>
+                    <input onChange={handlerChange} className='inp' value={movie} placeholder='searching...' type="text" />
+                    <img onClick={handlerSubmit} className='search' src={search} alt="err" />
                 </div>
-                <img onClick={sInvisible} className='search' src={search} alt="err" />
+                
                 <img className='notif' src={notification} alt="err" />
                 <a href="#"><h4 className="header__text__movies fw600">Sign Up</h4></a>
             </div>
