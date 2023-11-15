@@ -45,7 +45,7 @@ function Main({data}) {
             <div className='main__contentblock'>
                 <h1  className='name'>{data && data.docs && data.docs[0] ? part1 : 'STAR WARS'}</h1>
                 <h2 className='name fc50'>{data && data.docs && data.docs[0] ? part2 : 'The rise of somewhere'}</h2>
-                <p id='description'>{data && data.docs && data.docs[0] ? data.docs[0].description : 'The surviving members of the resistance face the First Order once again, and the legendary conflict between the Jedi and the Sith reaches its peak bringing the Skywalker saga to its end.'}</p>
+                <p id='description'>{data && data.docs && data.docs[0] && data.docs[0].description.length > 0 ? data.docs[0].description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, consequuntur, harum officia assumenda repellat numquam dolor cum aliquam sunt commodi quos excepturi provident corrupti aperiam vero minima rerum. Culpa, voluptas.'}</p>
                 <a className='stars' href="#"><img className='stars' src={stars} alt="err"/></a>
             </div>
             <div className='main__underblock'>

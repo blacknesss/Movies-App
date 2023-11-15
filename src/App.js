@@ -1,46 +1,19 @@
-import { useEffect, useState } from "react";
-import Head from "./components/Head";
-import Foot from "./components/Foot";
+import {Routes, Route, Link} from 'react-router-dom';
 
+import {Favorites} from './components/Favorites';
+import { Layout } from './components/Layout';
 
-    
 
 
 function App() {
-  const [name, setName]=useState('')
-
-
-const url = `https://api.kinopoisk.dev/v1.4/movie/search?page=1&limit=1&query=${name}`;
-  const options = {
-          method: 'GET',
-          headers: {
-              'X-API-KEY': 'RV930XR-C9NMA9B-HH3QNEC-DM43ZJT'
-          }
-      };
   
-  const [data, setData] = useState([])
-
-  useEffect(()=>{
-    fetch(url,options)
-      .then(res => res.json())
-      .then(res => setData(res))
-      .catch(error => {
-        console.error('Ошибка при получении данных', error);
-      });
-  }, [name])
-
-
-
-
-
-
-
-
   return (
-    <div className="App">
-        <Head data={data} setName={setName}/>
-        <Foot/>
-    </div>
+    <>
+    <Routes>
+      <Route path="/" element={<Layout />}/>
+      <Route path="/favorites" element={<Favorites/>}/>
+    </Routes>
+    </>
   );
 }
 
