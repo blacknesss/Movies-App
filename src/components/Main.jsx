@@ -31,14 +31,21 @@ function Main({data}) {
         containerF.style.top = `${offset}px`;
     }
 
+    if(data && data.docs && data.docs[0]){
+        const fullName = data.docs[0].alternativeName;
 
+        const parts = fullName.split(':');
+        var part1 = parts[0].trim();
+        var part2 = parts.slice(1).join(':').trim();
+    }
+    
 
     return ( 
         <div className="main">
             <div className='main__contentblock'>
-                <h1  className='name'>STAR WARS</h1>
-                <h2 className='name fc50'>THE RISE OF SKYWALKER</h2>
-                <p id='description'>The surviving members of the resistance face the First Order once again, and the legendary conflict between the Jedi and the Sith reaches its peak bringing the Skywalker saga to its end.</p>
+                <h1  className='name'>{data && data.docs && data.docs[0] ? part1 : 'STAR WARS'}</h1>
+                <h2 className='name fc50'>{data && data.docs && data.docs[0] ? part2 : 'The rise of somewhere'}</h2>
+                <p id='description'>{data && data.docs && data.docs[0] ? data.docs[0].description : 'The surviving members of the resistance face the First Order once again, and the legendary conflict between the Jedi and the Sith reaches its peak bringing the Skywalker saga to its end.'}</p>
                 <a className='stars' href="#"><img className='stars' src={stars} alt="err"/></a>
             </div>
             <div className='main__underblock'>

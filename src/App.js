@@ -10,7 +10,7 @@ function App() {
   const [name, setName]=useState('')
 
 
-const url = `https://api.kinopoisk.dev/v1.4/movie/search?page=1&limit=10&query=${name}`;
+const url = `https://api.kinopoisk.dev/v1.4/movie/search?page=1&limit=1&query=${name}`;
   const options = {
           method: 'GET',
           headers: {
@@ -24,8 +24,10 @@ const url = `https://api.kinopoisk.dev/v1.4/movie/search?page=1&limit=10&query=$
     fetch(url,options)
       .then(res => res.json())
       .then(res => setData(res))
+      .catch(error => {
+        console.error('Ошибка при получении данных', error);
+      });
   }, [name])
-
 
 
 
