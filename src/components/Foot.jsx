@@ -10,24 +10,30 @@ import TB from '../assets/7.png';
 import TA from '../assets/8.png';
 
 
-function Foot() {
+function Foot({movies, addToWishlist}) {
+    
+    
+
     return ( 
         <div className="Foot">
             <div className="Foot__header">
                 <h1 className="Foot__movies">Movies</h1>
                 <div className="dg">
-                    <div className="cart">
+                    
+                {movies.map(movie =>(
+                    <div key={movie.id} className="cart">
                         <div className='cart__up'>
                             <img src={ministar} alt="#" />
-                            <p className="num">6.8</p>
+                            <p className="num">{movie.star}</p>
                         </div>
-                        <img className='BW' src={BW} alt="#" />
-                        <h1 className='cart__h1'>Black Window</h1>
-                        <div className='cart__foot'>
-                            <img src={add} alt="#" />
-                            <p className="add">Add to my list</p>
-                        </div>
+                            <img className='BW' src={BW} alt="#" />
+                            <h1 className='cart__h1'>{movie.title}</h1>
+                            <div className='cart__foot'>
+                                <img src={add} alt="#" />
+                                <p onClick={() => addToWishlist(movie)} className="add">Add to my list</p>
+                            </div>
                     </div>
+            ))}
                     <div className="cart">
                         <div className='cart__up'>
                             <img src={ministar} alt="#" />

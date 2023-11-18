@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Head from "./Head";
 import Foot from "./Foot";
 
-function Layout() {
+function Layout({movies, addToWishlist}) {
     const [name, setName]=useState('')
 
 
@@ -33,7 +33,7 @@ function Layout() {
         <>
         <div className="App">
             <Head data={data} setName={setName}/>
-            <Foot/>
+            <Foot movies={movies} addToWishlist={addToWishlist}/>
         </div>
         </>
      );
