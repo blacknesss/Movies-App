@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import icon from '../assets/icon.svg';
 import arrRight from '../assets/arrow-right.svg';
+import Content from './Content';
 
 function Favorites({wishlist}) {
     return (
@@ -15,15 +16,7 @@ function Favorites({wishlist}) {
                         <Link className='links' to=''>Suggest me <img src={arrRight} alt="#" /></Link>
                     </div>
                 </div>
-                <div>
-                <h2>Список желаемых</h2>
-                        <div>
-                        {wishlist ?.map((movie) => (
-                            <li key={movie.id}>{movie.title}</li>
-                        ))}
-                        </div>
-                </div>
-
+                <Content wishlist={wishlist}/>
             </div>
         </div>
         

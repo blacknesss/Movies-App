@@ -357,6 +357,21 @@ code {
 }
 
 
+/* content-f */
+.Content{
+  max-width: 1400px;
+}
+.poster{
+  display: block;
+  height: 480px;
+  border-radius: 40px;
+  
+}
+
+
+
+
+
 
 
 /* otdelno */

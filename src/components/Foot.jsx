@@ -10,9 +10,9 @@ import TB from '../assets/7.png';
 import TA from '../assets/8.png';
 
 
-function Foot({movies, addToWishlist}) {
+function Foot({docs, addToWishlist}) {
     
-    
+    const tech = [docs]
 
     return ( 
         <div className="Foot">
@@ -20,14 +20,14 @@ function Foot({movies, addToWishlist}) {
                 <h1 className="Foot__movies">Movies</h1>
                 <div className="dg">
                     
-                {movies.map(movie =>(
-                    <div key={movie.id} className="cart">
+                {tech.map(movie =>(
+                    <div key={movie && movie[0] ? movie[0].id : 'error'} className="cart">
                         <div className='cart__up'>
                             <img src={ministar} alt="#" />
-                            <p className="num">{movie.star}</p>
+                            <p className="num">{movie && movie[0] && movie[0].rating && movie[0].rating.imdb ? movie[0].rating.imdb : 0}</p>
                         </div>
-                            <img className='BW' src={BW} alt="#" />
-                            <h1 className='cart__h1'>{movie.title}</h1>
+                            <img className='BW' src={movie && movie[0]&&movie[0].poster ? movie[0].poster.url : 'loading'} alt="#" />
+                            <h1 className='cart__h1'>{movie && movie[0] && movie[0].alternativeName ? movie[0].alternativeName : 'loading'}</h1>
                             <div className='cart__foot'>
                                 <img src={add} alt="#" />
                                 <p onClick={() => addToWishlist(movie)} className="add">Add to my list</p>

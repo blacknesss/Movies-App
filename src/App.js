@@ -8,9 +8,9 @@ import { useState } from 'react';
 
 function App() {
   
-  const [movies, setMovies] = useState([
-    {id: 1, title: 'Black Window', star: 6.8}
-]);
+//   const [movies, setMovies] = useState([
+//     {id: 1, title: 'Black Widow', star: 6.8, }
+// ]);
   const [wishlist, setWishlist] = useState([]);
 
   const addToWishlist = (movie) => {
@@ -24,7 +24,7 @@ function App() {
   return (
     <>
     <Routes>
-      <Route path="/" element={<Layout movies={movies} addToWishlist={addToWishlist}/>}/>
+      <Route path="/" element={<Layout addToWishlist={addToWishlist}/>}/>
       <Route path="/favorites" element={<Favorites wishlist={wishlist}/>}/>
     </Routes>
     </>
