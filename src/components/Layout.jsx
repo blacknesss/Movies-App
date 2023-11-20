@@ -7,7 +7,7 @@ function Layout({addToWishlist}) {
     const [name, setName]=useState('')
 
 
-    const url = `https://api.kinopoisk.dev/v1.4/movie/search?page=1&limit=1&query=${name}`;
+    const url = `https://api.kinopoisk.dev/v1.4/movie/search?page=1&limit=8&query=${name}`;
     const options = {
             method: 'GET',
             headers: {

@@ -11,17 +11,15 @@ import TA from '../assets/8.png';
 
 
 function Foot({docs, addToWishlist}) {
-    
+    const emtpy = ''
     const tech = [docs]
-
     return ( 
         <div className="Foot">
             <div className="Foot__header">
                 <h1 className="Foot__movies">Movies</h1>
-                <div className="dg">
-                    
                 {tech.map(movie =>(
-                    <div key={movie && movie[0] ? movie[0].id : 'error'} className="cart">
+                <div key={emtpy} className="dg">
+                    <div key={movie ? movie.id : 'error'} className="cart">
                         <div className='cart__up'>
                             <img src={ministar} alt="#" />
                             <p className="num">{movie && movie[0] && movie[0].rating && movie[0].rating.imdb ? movie[0].rating.imdb : 0}</p>
@@ -33,7 +31,7 @@ function Foot({docs, addToWishlist}) {
                                 <p onClick={() => addToWishlist(movie)} className="add">Add to my list</p>
                             </div>
                     </div>
-            ))}
+            
                     <div className="cart">
                         <div className='cart__up'>
                             <img src={ministar} alt="#" />
@@ -119,6 +117,7 @@ function Foot({docs, addToWishlist}) {
                         </div>
                     </div>
                 </div>
+            ))}    
             </div>
 
         </div>
