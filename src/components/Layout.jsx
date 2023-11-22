@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Head from "./Head";
 import Foot from "./Foot";
@@ -26,14 +25,14 @@ function Layout({addToWishlist}) {
         });
     }, [name])
 
- const docs = data.docs
+
 
 
     return ( 
         <>
         <div className="App">
             <Head data={data} setName={setName}/>
-            <Foot docs={docs} addToWishlist={addToWishlist}/>
+            <Foot addToWishlist={addToWishlist}/>
         </div>
         </>
      );

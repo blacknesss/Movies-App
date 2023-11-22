@@ -1,9 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ministar from '../assets/star.svg';
+import search from '../assets/eva_search-fill.svg';
 
 function Content({wishlist}) {
+    const [comments, setCommnents] = useState('')
+    const [myCom, setMyCom] = useState([])
     
-    
+    const handlerChange = (e) =>{
+        setCommnents(e.currentTarget.value)
+
+    }
+    const addTask = (comments) =>{
+        if(comments){
+            const newItem = {
+              id: Math.random().toString(36).substring(2, 9),
+              comm: comments
+            }
+            setMyCom([...myCom, newItem])
+          }
+    }
+    const handlerSubmit = (e) =>{
+        e.preventDefault()
+        addTask(comments)
+        setCommnents('')
+    }
+
     return (
         <>
         {wishlist.map(movie =>(
@@ -45,13 +66,24 @@ function Content({wishlist}) {
                         </div>
                     </div>
                 </div>
+                <div className='space'></div>
                 
-                <div className='comments'>
-                    
-                </div>
             </div>
     ))}
-            
+            <div className='comments'>
+                <div className="upper-div">
+                    <div className="left-inp">
+                        <img src={search} alt="#" />
+                        <input value={comments} onChange={e => handlerChange(e)} className='inp-comment' type="text" placeholder='Comment...'/>
+                    </div>
+                        <button onClick={handlerSubmit} className='btn-add'>Add</button>
+                </div>
+                <div className="under-div">
+                    {myCom.map((item, index) => (
+                        <div key={index} className="comm">{item.comm}</div>
+                    ))}
+                </div>
+            </div>
 
     </>    
      );

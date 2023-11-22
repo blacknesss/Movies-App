@@ -1,13 +1,5 @@
 import add from '../assets/add.svg';
-import BW from '../assets/Shang-Chi-and-the-Legend-of-the-Ten-Rings-Releases-New 1.svg';
 import ministar from '../assets/star.svg';
-import SC from '../assets/2.png';
-import LO from '../assets/3.png';
-import HI from '../assets/4.png';
-import MH from '../assets/5.png';
-import F from '../assets/6.png';
-import TB from '../assets/7.png';
-import TA from '../assets/8.png';
 import { useEffect, useState } from 'react';
 import { fetchWishList } from '../services';
 
