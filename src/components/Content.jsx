@@ -7,41 +7,41 @@ function Content({wishlist}) {
     return (
         <>
         {wishlist.map(movie =>(
-            <div key={movie ? movie[0].id : ''} className='Content'>
+            <div key={movie.id} className='Content'>
                 <div  className='poster'>
-                    <img className='logo' src={movie&&movie[0]&&movie[0].logo ? movie[0].logo.url : 'err'} alt="#" />
+                    <img className='logo' src={movie.logo.url} alt="#" />
                     <div className='nameofposter'>
                         <h1 className='start'>StartBar / Favorites</h1>
-                        <p className='NameF'>{movie && movie[0] && movie[0].alternativeName ? movie[0].alternativeName : 'loading'}</p>
+                        <p className='NameF'>{movie.alternativeName}</p>
                     </div>
                 </div>
                 <div className='mainF'>
-                    <img className='mini-logo' src={movie&&movie[0]&&movie[0].poster ? movie[0].poster.url : 'err'} alt="#" />
+                    <img className='mini-logo' src={movie.poster.url} alt="#" />
                     <div className='mini-right-block'>
-                        <h1 className="mini-name">{movie && movie[0] && movie[0].alternativeName ? movie[0].alternativeName : 'loading'}</h1>
-                        <p className="mini-p">{movie && movie[0] && movie[0].description ? movie[0].description : 'loading'}</p>
+                        <h1 className="mini-name">{movie.alternativeName}</h1>
+                        <p className="mini-p">{movie.description}</p>
                         <div className='mini-cart'>
                             <img src={ministar} alt="#" />
-                            <p className="num">{movie && movie[0] && movie[0].rating && movie[0].rating.imdb ? movie[0].rating.imdb : 0}</p>
+                            <p className="num">{movie.rating.imdb}</p>
                         </div>
                         <div className="mini-block">
                             <h1 className='mini-up'>type</h1>
-                            <p className='mini-under'>{movie&&movie[0]&&movie[0].type ? movie[0].type : 'loading'}</p>
+                            <p className='mini-under'>{movie.type}</p>
                         </div>
                         <div className="mini-block">
                             <h1 className='mini-up'>Release Date:</h1>
-                            <p className='mini-under'>{movie&&movie[0]&&movie[0].year ? movie[0].year : 'loading'}</p>
+                            <p className='mini-under'>{movie.year}</p>
                         </div>
                         <div className="mini-block">
                             <h1 className='mini-up'>Run time</h1>
-                            <p className='mini-under'>{movie&&movie[0]&&movie[0].movieLength ? movie[0].movieLength + ' min' : 'loading'}</p>
+                            <p className='mini-under'>{movie.movieLength + ' min'}</p>
                         </div>
                         <div className="mini-block">
                             <h1 className='mini-up'>Genres</h1>
-                            <div className='mini-under'>{movie&&movie[0]&&movie[0].genres ? movie[0].genres.map(item => (<div key={item.name}>
+                            <div className='mini-under'>{movie.genres.map(item => (<div key={item.name}>
                                 <p key={item.name}>{item.name}</p>
                               </div>  
-                            )) : 'loading'}</div>
+                            ))}</div>
                         </div>
                     </div>
                 </div>

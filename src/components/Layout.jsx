@@ -11,7 +11,7 @@ function Layout({addToWishlist}) {
     const options = {
             method: 'GET',
             headers: {
-                'X-API-KEY': 'RV930XR-C9NMA9B-HH3QNEC-DM43ZJT'
+                'X-API-KEY': 'NN3P3ZY-CG8MQ0V-MT1ZE3X-DKX4WSN'
             }
         };
     
