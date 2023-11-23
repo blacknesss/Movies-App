@@ -23,6 +23,11 @@ function Header({setName}) {
         let inp = document.querySelector('.inp');
         inp.classList.toggle('inp-v')
     }
+    const handlerPress = (e) =>{
+        if(e.key === 'Enter'){
+            handlerSubmit(e)
+        }
+    }
 
     const handleScroll = () => {
         window.scrollTo({ top: 1000, behavior: 'smooth' });
@@ -37,7 +42,7 @@ function Header({setName}) {
             <a href='/'><img src={apna} alt="error" /></a>
             <div className='header__text'>
                 <div className='search-abs '>
-                    <input onChange={handlerChange} className='inp' value={movie} placeholder='searching...' type="text" />
+                    <input onChange={handlerChange} onKeyDown={handlerPress} className='inp' value={movie} placeholder='searching...' type="text" />
                     <img onClick={handlerSubmit} className='search' src={search} alt="err" />
                 </div>
                 
