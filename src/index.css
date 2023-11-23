@@ -360,7 +360,15 @@ code {
 
 /* content-f */
 .poster{
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
+  height: 480px;
+  border: 1px solid #000;
+  border-radius: 60px;
 }
 .nameofposter{
   position: absolute;
@@ -378,8 +386,7 @@ code {
 }
 .logo{
   display: block;
-  height: 480px;
-  justify-content: center;
+  /* max-width: 50%; */
   margin: auto;
 }
 .start{
