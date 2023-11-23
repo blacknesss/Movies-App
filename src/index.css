@@ -180,6 +180,7 @@ code {
 
 .main__lastblock{
   display: flex;
+  margin: auto;
   flex-direction: column;
 }
 .PM-text{
@@ -192,36 +193,32 @@ code {
 
   margin-bottom: 33px;
 }
+.wrapper-slider{
+  display: flex;
+  max-width: 1300px;
+}
+.wrapper-slider .PM{
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+  scroll-behavior: smooth;
+}
 .PM{
   display: flex;
   column-gap: 35px;
   z-index: 2;
-
+  
   border-radius: 24px;
   border: 1px solid rgba(255, 255, 255, 0.14);
   background: rgba(103, 101, 113, 0.34);
   backdrop-filter: blur(10px);
   padding: 15px 19px;
 }
-.Double{
-  position: absolute;
-  top: 300px;
-  right: 0;
-  display: none;
-  visibility: visible;
-}
-.arrow{
-  cursor: pointer;
-}
-.sw{
+.CA{
+  width: calc(100% / 6);
   display: block;
-  width: 184px;
   height: 256px;
   border-radius: 25px;
-}
-
-.CA{
-  width: 100%;
   transition: all 0.3s ease-in-out;
 }
 .CA:hover{
@@ -230,7 +227,10 @@ code {
   border-radius: 25px;
   border: 2px solid rgba(250, 71, 118, 0.50);
 }
-
+.arrow{
+  cursor: pointer;
+  align-self: center;
+}
 
 /* foot */
 .Foot{
@@ -569,4 +569,28 @@ body::-webkit-scrollbar-thumb {
 }
 .space{
   height: 200px;
+}
+
+
+
+/* adaptiv */
+@media screen and (max-width: 1075px){
+  .CA{
+    width: calc(100% / 5);
+  }
+}
+@media screen and (max-width: 875px){
+  .CA{
+    width: calc(100% / 4);
+  }
+}
+@media screen and (max-width: 700px){
+  .CA{
+    width: calc(100% / 3);
+  }
+}
+@media screen and (max-width: 575px){
+  .CA{
+    width: 100%;
+  }
 }

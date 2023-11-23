@@ -1,35 +1,10 @@
 import stars from '../assets/Group 2.svg';
 import play from '../assets/Polygon 1.svg';
-import CA from '../assets/Rectangle 6.svg';
-import SW from '../assets/Rectangle 7.svg';
-import SM from '../assets/Rectangle 12.svg';
-import SWTLJ from '../assets/Rectangle 9.svg';
-import U from '../assets/Rectangle 8.svg';
-import A from '../assets/Rectangle 11.svg';
 import arr from '../assets/ic_round-navigate-next.svg';
 
 function Main({data}) {
 
-
-    let offset = 0;
-    
-    const slider = () =>{
-        const containerF = document.querySelector('.Double');
-        const PM = document.querySelector('.PM');
-            if (offset < 300){
-                offset +=300;
-                containerF.style.display = 'none';
-                PM.style.visibility = 'visible';
-            }
-            else{
-                offset = 0;
-                PM.style.visibility = 'hidden';
-                containerF.style.display = 'flex';
-            }
-            
-        
-        containerF.style.top = `${offset}px`;
-    }
+    const datany = data.docs
 
     if(data && data.docs && data.docs[0]){
         const fullName = data.docs[0].alternativeName;
@@ -38,7 +13,34 @@ function Main({data}) {
         var part1 = parts[0].trim();
         var part2 = parts.slice(1).join(':').trim();
     }
+    // slider
+    const carousel = document.querySelector('.PM');
     
+    
+    let isDragStart = false, prevPageX, prevScrollLeft;
+
+    const dragStart = (e) =>{
+        isDragStart = true;
+        prevPageX = e.pageX;
+        prevScrollLeft = carousel.scrollLeft;
+    }
+    const dragging = (e) => {
+        if(!isDragStart) return;
+        e.preventDefault();
+        let positionDiff = e.pageX - prevPageX;
+        carousel.scrollLeft = prevScrollLeft - positionDiff;
+    }
+    const dragStop = () =>{
+        isDragStart = false;
+    }
+
+    const slider = () =>{
+        carousel.scrollLeft += 206;
+        console.log(carousel.scrollLeft);
+        if(carousel.scrollLeft === 399){
+            carousel.scrollLeft = 0
+        }
+    }
 
     return ( 
         <div className="main">
@@ -58,29 +60,16 @@ function Main({data}) {
             </div>
             <div className="main__lastblock">
                 <h1 className='PM-text'>Popular Movies</h1>
-                <div className='df'>
-                    <div className='PM'>
-                        <img className='CA sw' src={CA} alt="#" />
-                        <img className='CA sw' src={SW} alt="#" />
-                        <img className='CA sw' src={SM} alt="#" />
-                        <img className='CA sw' src={SWTLJ} alt="#" />
-                        <img className='CA sw' src={U} alt="#" />
-                        <img className='CA sw' src={A} alt="#" />
-
-                        <div className='PM Double'>
-                            <img className='CA sw' src={SW} alt="#" />
-                            <img className='CA sw' src={SM} alt="#" />
-                            <img className='CA sw' src={SWTLJ} alt="#" />
-                            <img className='CA sw' src={U} alt="#" />
-                            <img className='CA sw' src={A} alt="#" />
-                            <img className='CA sw' src={CA} alt="#" />
-                        </div>
+                <div className='wrapper-slider'>
+                    <div onMouseUp={dragStop} onMouseDown={e => dragStart(e)} onMouseMove={e => dragging(e)} className='PM'>
+                    {datany ? datany.map((item, index) => (
+                        <img id='img' key={index} className='CA' src={item.poster.url} alt="#" />
+                    )) : ''}    
                     </div>
                     <div onClick={slider} className="arrow">
                         <img src={arr} alt="#" />
                     </div>
                 </div>
-                
             </div>
         </div>
      );
