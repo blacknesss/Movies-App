@@ -30,7 +30,6 @@ function Content({wishlist}) {
         {wishlist.map(movie =>(
             <div key={movie.id} className='Content'>
                 <div style={{backgroundImage: `url(${movie.logo.url})`, backgroundColor: '#000', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'contain'}} className='poster'>
-                    {/* <img className='logo' src={movie.logo.url} alt="#" /> */}
                     <div className='nameofposter'>
                         <h1 className='start'>StartBar / Favorites</h1>
                         <p className='NameF'>{movie.alternativeName}</p>
