@@ -36,10 +36,10 @@ function Header({setName}) {
     return (
         <div className="header">
             <div className='header__text'>
-                <h4 onClick={handleScroll} className="header__text__movies" style={{cursor: 'pointer'}}>Movies</h4>
+                <h4 onClick={handleScroll} className="header__text__movies mov" style={{cursor: 'pointer'}}>Movies</h4>
                 <Link to="/favorites"><h4 className="header__text__movies">Favorites</h4></Link>
             </div>
-            <a href='/'><img src={apna} alt="error" /></a>
+            <a id='apna' href='/'><img src={apna} alt="error" /></a>
             <div className='header__text'>
                 <div className='search-abs '>
                     <input onChange={handlerChange} onKeyDown={handlerPress} className='inp' value={movie} placeholder='searching...' type="text" />

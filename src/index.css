@@ -484,6 +484,12 @@ code {
   display: flex;
   column-gap: 24px;
 }
+.under-div{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  word-wrap: break-word;
+}
 .left-inp{
   display: flex;
   flex: 1 0 0 ;
@@ -511,8 +517,11 @@ code {
   background: #7B6EF6;
 }
 .comm{
+  display: flex;
+  flex-wrap: wrap;
+  word-wrap: break-word;
   margin-top: 75px;
-  width: max-content;
+  max-width: max-content;
   padding: 40px;
   border-radius: 12px;
   opacity: 0.8;
@@ -579,9 +588,59 @@ body::-webkit-scrollbar-thumb {
     width: calc(100% / 5);
   }
 }
+@media screen and (max-width: 1024px) {
+  .dg{
+    display: grid;
+    grid-template-columns: repeat(3, 3fr);
+    column-gap: 24px;
+    row-gap: 16px;
+  }
+  #description{
+    max-width: 100%;
+  }
+}
 @media screen and (max-width: 875px){
   .CA{
     width: calc(100% / 4);
+  }
+
+  .mainF{
+    column-gap: 50px;
+  }
+  .mini-logo{
+    width: 440px;
+    height: 700px;
+  }
+  .mini-p{
+    font-size: 17px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .dg{
+    display: grid;
+    grid-template-columns: repeat(2, 4fr);
+    column-gap: 24px;
+    row-gap: 16px;
+  }
+  .mov{
+    display: none;
+  }
+  
+  .mini-logo{
+    width: 300px;
+    height: 400px;
+    margin-bottom: 16px;
+  }
+  .nameofposter{
+    width: 450px;
+  }
+  .mainF{
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px 0 10px;
+  }
+  .fHeader{
+    padding: 16px;
   }
 }
 @media screen and (max-width: 700px){
@@ -592,5 +651,60 @@ body::-webkit-scrollbar-thumb {
 @media screen and (max-width: 575px){
   .CA{
     width: 100%;
+  }
+  .cart{
+    display: flex;
+    height: 480px;
+    gap: 8px;
+  }
+  #apna{
+    display: none;
+  }
+
+  .nameofposter{
+    width: 350px;
+  }
+}
+@media screen and (max-width: 453px){
+  .cart{
+    justify-self: center;
+    width: 80%;
+  }
+  .name{
+    font-size: 70px;
+  }
+  .Foot__header{
+    display: flex;
+    flex-direction: column;
+    
+  }
+  .PM-text{
+    align-self: center;
+  }
+  .Foot__movies{
+    align-self: center;
+    justify-self: center;
+  }
+  .dg{
+    display: grid;
+    grid-template-columns: repeat(1, 8fr);
+    column-gap: 24px;
+    row-gap: 16px;
+  }
+  .header__text{
+    column-gap: 16px;
+  }
+
+
+  
+  .fHeader img{
+    display: none;
+  }
+  .nameofposter{
+    width: 250px;
+    padding: 20px;
+  }
+  .NameF{
+    font-size: 25px;
   }
 }
