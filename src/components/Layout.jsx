@@ -6,11 +6,11 @@ function Layout({addToWishlist}) {
     const [name, setName]=useState('')
 
 
-    const url = `https://api.kinopoisk.dev/v1.4/movie/search?page=2&limit=8&query=${name}`;
+    const url = `https://api.kinopoisk.dev/v1.4/movie/search?page=1&limit=8&query=${name}`;
     const options = {
             method: 'GET',
             headers: {
-                'X-API-KEY': 'RV930XR-C9NMA9B-HH3QNEC-DM43ZJT'
+                'X-API-KEY': '97Q4FJV-14P46QQ-GAJZDDH-B1PHCZ0'
             }
         };
     
@@ -24,7 +24,6 @@ function Layout({addToWishlist}) {
             console.error('Ошибка при получении данных', error);
         });
     }, [name])
-
 
 
 

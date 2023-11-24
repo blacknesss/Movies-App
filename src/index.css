@@ -22,9 +22,9 @@ code {
 }
 
 .Head{
-  background-image: url(assets/365f6fd1725123369f147ac80ea0c43b.png);
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
 }
 
 .header{
@@ -665,6 +665,11 @@ body::-webkit-scrollbar-thumb {
     width: 350px;
   }
 }
+@media screen and (max-width: 520px){
+  .name{
+    font-size: 70px;
+  }
+}
 @media screen and (max-width: 453px){
   .cart{
     justify-self: center;
@@ -706,5 +711,10 @@ body::-webkit-scrollbar-thumb {
   }
   .NameF{
     font-size: 25px;
+  }
+}
+@media screen and (max-width: 400px){
+  .name{
+    font-size: 60px;
   }
 }
