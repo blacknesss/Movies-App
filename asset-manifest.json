@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Movies-App/static/css/main.06b9ef24.css",
-    "main.js": "/Movies-App/static/js/main.3d24b319.js",
+    "main.js": "/Movies-App/static/js/main.6a00379e.js",
     "static/media/png": "/Movies-App/static/media/365f6fd1725123369f147ac80ea0c43b.1df5d7b50b4c76b9d5a7.png",
     "static/media/Group 2.svg": "/Movies-App/static/media/Group 2.bbaf42992af890f260dffc80fc324fe6.svg",
     "static/media/ApnaTV.svg": "/Movies-App/static/media/ApnaTV.f440c96daafeda2ce305b6af7b171a2a.svg",
@@ -15,10 +15,10 @@
     "static/media/add.svg": "/Movies-App/static/media/add.05a525544c3c9cfbb9a810c594eb3cb9.svg",
     "static/media/Polygon 1.svg": "/Movies-App/static/media/Polygon 1.1464921ce29698032ca863b914bd93eb.svg",
     "main.06b9ef24.css.map": "/Movies-App/static/css/main.06b9ef24.css.map",
-    "main.3d24b319.js.map": "/Movies-App/static/js/main.3d24b319.js.map"
+    "main.6a00379e.js.map": "/Movies-App/static/js/main.6a00379e.js.map"
   },
   "entrypoints": [
     "static/css/main.06b9ef24.css",
-    "static/js/main.3d24b319.js"
+    "static/js/main.6a00379e.js"
   ]
 }
