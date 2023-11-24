@@ -13,7 +13,7 @@ function Favorites({wishlist}) {
                     <div className='nav-r'>
                         <Link className='links' to='/'>Movies</Link>
                         <Link className='links' to='/'>TV Shows</Link>
-                        <Link className='links' to=''>Suggest me <img src={arrRight} alt="#" /></Link>
+                        <Link className='links' to='/'>Suggest me <img src={arrRight} alt="#" /></Link>
                     </div>
                 </div>
                 <Content wishlist={wishlist}/>
