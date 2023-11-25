@@ -23,7 +23,7 @@ function App() {
     <>
     <Routes>
       <Route path="/" element={<Layout addToWishlist={addToWishlist}/>}/>
-      <Route path="/favorites" element={<Favorites wishlist={wishlist}/>}/>
+      <Route path="/favorites/*" element={<Favorites wishlist={wishlist}/>}/>
     </Routes>
     </>
   );

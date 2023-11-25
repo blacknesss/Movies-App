@@ -489,6 +489,7 @@ code {
   flex-direction: column;
   flex-wrap: wrap;
   word-wrap: break-word;
+  margin-bottom: 180px;
 }
 .left-inp{
   display: flex;
@@ -577,7 +578,7 @@ body::-webkit-scrollbar-thumb {
   border: 3px solid rgb(0, 0, 0);
 }
 .space{
-  height: 200px;
+  height: 100px;
 }
 
 

@@ -2,32 +2,33 @@ import React, { useState } from 'react';
 import ministar from '../assets/star.svg';
 import search from '../assets/eva_search-fill.svg';
 
-function Content({wishlist}) {
-    const [comments, setCommnents] = useState('')
-    const [myCom, setMyCom] = useState([])
-    
-    const handlerChange = (e) =>{
-        setCommnents(e.currentTarget.value)
+function Tvshows({wishlist}) {
+    const [movies, setMovies] = useState(wishlist.map(movie => ({ ...movie, comments: [] })));
 
-    }
-    const addTask = (comments) =>{
-        if(comments){
-            const newItem = {
-              id: Math.random().toString(36).substring(2, 9),
-              comm: comments
+console.log(movies);
+    const [comment, setComment] = useState('');
+
+    const handleCommentChange = (e) => {
+        setComment(e.currentTarget.value);
+    };
+
+    const addComment = (movieId, comment) => {
+        setMovies(movies.map(movie => {
+            if (movie.id === movieId) {
+                return { ...movie, comments: [...movie.comments, comment] };
             }
-            setMyCom([...myCom, newItem])
-          }
-    }
-    const handlerSubmit = (e) =>{
-        e.preventDefault()
-        addTask(comments)
-        setCommnents('')
-    }
+            return movie;
+        }));
+    };
+
+    const handleCommentSubmit = (movieId) => {
+        addComment(movieId, comment);
+        setComment('');
+    };
 
     return (
         <>
-        {wishlist.map(movie =>(
+        {movies.map(movie =>(
             <div key={movie.id} className='Content'>
                 <div style={{backgroundImage: `url(${movie.logo.url})`, backgroundColor: '#000', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'contain'}} className='poster'>
                     <div className='nameofposter'>
@@ -67,25 +68,32 @@ function Content({wishlist}) {
                 </div>
                 <div className='space'></div>
                 
+                <div key={movie.id} className='comments'>
+                    <div className="upper-div">
+                        <div className="left-inp">
+                            <img src={search} alt="#" />
+                            <input
+                            value={comment}
+                            onChange={e => handleCommentChange(e)} className='inp-comment'
+                            type="text"
+                            placeholder='Comment...'/>
+                        </div>
+                            <button
+                            onClick={() => handleCommentSubmit(movie.id)}
+                            className='btn-add'>Add</button>
+                    </div>
+                    <div className="under-div">
+                        {movie.comments.map((comm, index) => (
+                            <div key={index} className="comm">{comm}</div>
+                    ))}
+                    </div>
+                </div>
             </div>
     ))}
-            <div className='comments'>
-                <div className="upper-div">
-                    <div className="left-inp">
-                        <img src={search} alt="#" />
-                        <input value={comments} onChange={e => handlerChange(e)} className='inp-comment' type="text" placeholder='Comment...'/>
-                    </div>
-                        <button onClick={handlerSubmit} className='btn-add'>Add</button>
-                </div>
-                <div className="under-div">
-                    {myCom.map((item, index) => (
-                        <div key={index} className="comm">{item.comm}</div>
-                    ))}
-                </div>
-            </div>
+            
 
     </>    
      );
 }
 
-export default Content;
+export { Tvshows };
