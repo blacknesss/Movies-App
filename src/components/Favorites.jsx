@@ -6,6 +6,8 @@ import { Flist } from './Flist';
 import { Tvshows } from './Tvshows';
 
 function Favorites({wishlist}) {
+    
+
     return (
         <div className='fApp'>
             <div className='container'>
@@ -18,7 +20,7 @@ function Favorites({wishlist}) {
                     </div>
                 </div>
                 <Routes>
-                    <Route path='/' element={<Flist />}/>
+                    <Route path='/' element={<Flist wishlist={wishlist}/>}/>
                     <Route path='/tvshows' element={<Tvshows wishlist={wishlist}/>}/>
                 </Routes>
                 

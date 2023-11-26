@@ -1,5 +1,4 @@
 import {Routes, Route} from 'react-router-dom';
-
 import {Favorites} from './components/Favorites';
 import { Layout } from './components/Layout';
 import { useState } from 'react';
@@ -7,16 +6,13 @@ import { useState } from 'react';
 
 
 function App() {
-  
-
   const [wishlist, setWishlist] = useState([]);
 
   const addToWishlist = (movie) => {
     if (!wishlist.some((m) => m.id === movie.id)) {
       setWishlist([...wishlist, movie]);
-    } else {
-      alert('Этот фильм уже в вашем списке желаемых!');
     }
+    return movie
   };
 
   return (

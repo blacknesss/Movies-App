@@ -6,17 +6,19 @@ function Layout({addToWishlist}) {
     const [name, setName]=useState('')
 
 
-    const url = `https://api.kinopoisk.dev/v1.4/movie/search?page=1&limit=8&query=${name}`;
-    const options = {
-            method: 'GET',
-            headers: {
-                'X-API-KEY': '97Q4FJV-14P46QQ-GAJZDDH-B1PHCZ0'
-            }
-        };
+    
     
     const [data, setData] = useState([])
 
     useEffect(()=>{
+        const url = `https://api.kinopoisk.dev/v1.4/movie/search?page=1&limit=8&query=${name}`;
+        const options = {
+            method: 'GET',
+            headers: {
+                'X-API-KEY': 'C2MHFSY-PRCMA67-KE7WXXV-S195PRK'
+            }
+        };
+
         fetch(url,options)
         .then(res => res.json())
         .then(res => setData(res))

@@ -3,11 +3,12 @@ import stars from '../assets/Group 2.svg';
 import play from '../assets/Polygon 1.svg';
 import arr from '../assets/ic_round-navigate-next.svg';
 import { fetchPopularMovies } from '../services';
+import Modal from './Modal';
 
 function Main({data, changeBackground}) {
     const [PM, setPM]=useState([])
     const [datany, setDatany] = useState([])
-
+    const [isActive, setIsActive]=useState(false)
     useEffect(() => {
         if(data && data.docs) {
             setDatany(data.docs);
@@ -66,7 +67,7 @@ function Main({data, changeBackground}) {
             <div className='main__underblock'>
                 <div className='WN'>
                     <img src={play} alt="err" />
-                    <a href="#"><span className='WatchNow'>Watch Now</span></a>
+                    <a onClick={()=>setIsActive(true)} href="#"><span className='WatchNow'>Watch Now</span></a>
                 </div>
                 
                 <a href="#"><span className='Trailer'>Trailer</span></a>
@@ -91,6 +92,9 @@ function Main({data, changeBackground}) {
                     </div>
                 </div>
             </div>
+            <Modal active={isActive} setActive={setIsActive}>
+            <iframe style={{width: '100%', height: '400px'}} src="https://www.youtube.com/embed/jfKfPfyJRdk?si=7WGKQWkR93NfabT8" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+            </Modal>
         </div>
      );
 }

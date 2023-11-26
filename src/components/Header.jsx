@@ -3,11 +3,17 @@ import apna from '../assets/ApnaTV.svg';
 import notification from '../assets/Vector.svg';
 import search from '../assets/eva_search-fill.svg';
 import { Link } from 'react-router-dom';
-
-
+import Modal from './Modal';
+import arrRight from '../assets/arrow_forward_FILL0_wght400_GRAD0_opsz24.svg';
 
 function Header({setName}) {
     const [movie, setMovie]=useState('');
+    const [notActive, setNotActive]=useState(false)
+    const [modalActive, setModalActive]=useState(false)
+    const [user, setUser]=useState(false)
+
+    
+    
 
     const handlerChange = (e)=>{
             setMovie(e.currentTarget.value)
@@ -46,9 +52,24 @@ function Header({setName}) {
                     <img onClick={handlerSubmit} className='search' src={search} alt="err" />
                 </div>
                 
-                <img className='notif' src={notification} alt="err" />
-                <a href="#"><h4 className="header__text__movies fw600">Sign Up</h4></a>
-            </div>   
+                <img onClick={()=> setNotActive(true)} className='notif' src={notification} alt="err" />
+                <button id='btn-sign' onClick={() => setModalActive(true)} disabled={user}><h4 className="header__text__movies fw600">{user ? 'User1' : 'Sign up'}</h4></button>
+            </div>
+            <Modal active={modalActive} setActive={setModalActive}>
+                <div className='create__acc'>
+                    <h1>Create account</h1>
+                    <p>Already have an account? <a href="#">Sign in</a></p>
+                    <input placeholder='firstname...' type="text" className="username nameee" />
+                    <input placeholder='lastname...' type="text" className="username nameee" />
+                    <input placeholder='example@mail.ru' type="email" className='username nameee' />
+                    <button onClick={()=>{setModalActive (false); setUser(true)}} className='nameee username sign-up'>Sign up<img src={arrRight} alt="#" /></button>
+                </div>
+            </Modal>
+            <Modal active={notActive} setActive={setNotActive}>
+                <div className="create__acc">
+                    <h1>Входящее уведомление!</h1>
+                </div>
+            </Modal>
         </div>
      );
 }

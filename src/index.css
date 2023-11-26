@@ -264,7 +264,6 @@ code {
 }
 
 .cart{
-  height: 520px;
   display: flex;
   flex-direction: column;
   border-radius: 12px;
@@ -321,7 +320,9 @@ code {
 .BW{
   height: 400px;
 }
-
+#img-c{
+  align-self: center;
+}
 
 /* new page about comments */
 .fApp{
@@ -482,6 +483,7 @@ code {
 }
 .upper-div{
   display: flex;
+  justify-content: space-around;
   column-gap: 24px;
 }
 .under-div{
@@ -492,10 +494,10 @@ code {
   margin-bottom: 180px;
 }
 .left-inp{
+  flex-grow: 0.5;
   display: flex;
-  flex: 1 0 0 ;
-  padding: 12px 16px;
-  gap: 16px;
+  padding: 12px 1px;
+  gap: 8px;
   border-radius: 12px;
   border: 1px solid  #323B54;
   background: rgba(0, 0, 0, 0.10);
@@ -503,16 +505,16 @@ code {
 .inp-comment{
   color: #767E94;
   font-family: Poppins;
-  font-size: 16px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 24px;
 }
 .btn-add{
   display: flex;
-  flex: .2;
+  flex-grow: 0.1;
   justify-content: center;
-  padding: 16px 32px;
+  padding: 16px 25px;
   border-radius: 12px;
   border: 2px solid #7B6EF6;
   background: #7B6EF6;
@@ -536,6 +538,30 @@ code {
   line-height: 24px;
   letter-spacing: 0.32px;
 }
+.Content{
+  transition: all 2s ease-in;
+}
+.btn-show{
+  width: 50%;
+  margin: auto;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+
+  transition: all 2s ease-in;
+  background: rgba(0, 0, 0, 0.20);
+  color: #7B6EF6;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0.32px;
+  padding: 16px;
+  border: 1px solid #fff;
+  border-radius: 50px;
+}
+
 
 
 
@@ -582,6 +608,74 @@ body::-webkit-scrollbar-thumb {
 }
 
 
+/* модальное окно */
+.modal {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0,0,0,0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.5s;
+  z-index: 99;
+}
+.modal.active{
+  opacity: 1;
+  pointer-events: all;
+}
+.modal__content{
+  padding: 20px;
+  border-radius: 12px;
+  background-color: white;
+  width: 50vw;
+  transform: scale(0.5);
+  transition: 0.4s all;
+}
+.modal__content.active{
+  transform: scale(1);
+}
+/* -- */
+
+/* create - acc */
+.create__acc{
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;;
+  row-gap: 15px;
+}
+.create__acc h1{
+  font-size: 36px;
+  color: #000;
+  font-weight: 600;
+}
+.create__acc p{
+font-weight: 500;
+}
+.username{
+  width: 100%;
+}
+.nameeeflex{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.nameee{
+  border-radius: 25px;
+  border: 1px solid #000;
+  padding: 8px;
+}
+.sign-up{
+  background-color: rgb(11, 186, 209);
+}
+/* == */
+
 
 /* adaptiv */
 @media screen and (max-width: 1075px){
@@ -598,6 +692,9 @@ body::-webkit-scrollbar-thumb {
   }
   #description{
     max-width: 100%;
+  }
+  .modal__content{
+    width: 50vw;
   }
 }
 @media screen and (max-width: 875px){
@@ -655,7 +752,6 @@ body::-webkit-scrollbar-thumb {
   }
   .cart{
     display: flex;
-    height: 480px;
     gap: 8px;
   }
   #apna{
@@ -664,6 +760,9 @@ body::-webkit-scrollbar-thumb {
 
   .nameofposter{
     width: 350px;
+  }
+  .modal__content{
+    width: 90vw;
   }
 }
 @media screen and (max-width: 520px){
@@ -674,7 +773,7 @@ body::-webkit-scrollbar-thumb {
 @media screen and (max-width: 453px){
   .cart{
     justify-self: center;
-    width: 80%;
+    width: 70%;
   }
   .name{
     font-size: 70px;
@@ -717,5 +816,8 @@ body::-webkit-scrollbar-thumb {
 @media screen and (max-width: 400px){
   .name{
     font-size: 60px;
+  }
+  .nameofposter{
+    width: 200px;
   }
 }
