@@ -8,9 +8,12 @@ import { useState } from 'react';
 function App() {
   const [wishlist, setWishlist] = useState([]);
 
+  const [isEnter, setIsEnter] = useState(false);
+
   const addToWishlist = (movie) => {
     if (!wishlist.some((m) => m.id === movie.id)) {
       setWishlist([...wishlist, movie]);
+      setIsEnter(true)
     }
     return movie
   };
@@ -18,7 +21,7 @@ function App() {
   return (
     <>
     <Routes>
-      <Route path="/" element={<Layout addToWishlist={addToWishlist}/>}/>
+      <Route path="/" element={<Layout isEnter={isEnter} addToWishlist={addToWishlist}/>}/>
       <Route path="/favorites/*" element={<Favorites wishlist={wishlist}/>}/>
     </Routes>
     </>

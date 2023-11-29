@@ -46,7 +46,6 @@ function Tvshows({ wishlist}) {
                     </button>
                     {movie.isExpanded && (
                         <div className='Content'>
-                            {/* Содержимое фильма и комментарии */}
                             <div style={{backgroundImage: `url(${movie.logo.url})`, backgroundColor: '#000', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'contain'}} className='poster'>
                                 <div className='nameofposter'>
                                     <h1 className='start'>StartBar / Favorites</h1>

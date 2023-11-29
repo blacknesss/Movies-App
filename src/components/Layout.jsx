@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Head from "./Head";
 import Foot from "./Foot";
 
-function Layout({addToWishlist}) {
+function Layout({addToWishlist, isEnter}) {
     const [name, setName]=useState('')
 
 
@@ -33,7 +33,7 @@ function Layout({addToWishlist}) {
         <>
         <div className="App">
             <Head data={data} setName={setName}/>
-            <Foot addToWishlist={addToWishlist}/>
+            <Foot isEnter={isEnter} addToWishlist={addToWishlist}/>
         </div>
         </>
      );

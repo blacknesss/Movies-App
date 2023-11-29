@@ -1,33 +1,13 @@
-import React, { useState } from 'react';
 import ministar from '../assets/star.svg';
 
-// доделать
+
 function Flist({wishlist}) {
-    const [movies, setMovies] = useState(wishlist.map(movie => ({
-        ...movie,
-        comments: [],
-        isExpanded: false
-    })));
-
-    const toggleMovieVisibility = (movieId) => {
-        setMovies(movies.map(movie => {
-            if (movie.id === movieId) {
-                return { ...movie, isExpanded: !movie.isExpanded };
-            }
-            return movie;
-        }));
-    };
-
+    
     return ( 
         <div>
             {wishlist.map(movie => (
                 <div key={movie.id}>
-                    <button
-                        className='btn-show'
-                        onClick={() => toggleMovieVisibility(movie.id)}>
-                        {movie.isExpanded ? 'Hide Details' : 'Show Details'}
-                    </button>
-                    {movie.isExpanded && (
+                    <div className="space"></div>
                         <div className='Content'>
                             <div
                                 style={{backgroundImage: `url(${movie.logo.url})`, backgroundColor: '#000',
@@ -74,7 +54,6 @@ function Flist({wishlist}) {
                                 </div>
                             </div>
                         </div>
-                    )}
                 </div>
                 
             ))}

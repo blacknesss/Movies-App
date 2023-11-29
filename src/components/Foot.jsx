@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { fetchWishList } from '../services';
 import { Link } from 'react-router-dom';
 
-function Foot({addToWishlist}) {
+function Foot({addToWishlist, isEnter}) {
     const [movies, setMovies] = useState([]);
     
     useEffect(() => {
@@ -29,7 +29,7 @@ function Foot({addToWishlist}) {
                         <div className='cart__foot'>
                             <img src={add} alt="#" />
                             <Link to='/favorites/'>
-                            <p onClick={()=> addToWishlist(movie)} className="add">Add to my list</p>
+                            <p onClick={()=> addToWishlist(movie)} className="add">{ isEnter ? 'Added' : 'Add to my list'}</p>
                             </Link>
                         </div>
                     </div>
