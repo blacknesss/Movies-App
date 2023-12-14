@@ -5,7 +5,7 @@ import arr from '../assets/ic_round-navigate-next.svg';
 import { fetchPopularMovies } from '../services';
 import Modal from './Modal';
 
-function Main({data, changeBackground}) {
+function Main({data, changeBackground, a, pagination}) {
     const [PM, setPM]=useState([])
     const [datany, setDatany] = useState([])
     const [isActive, setIsActive]=useState(false)
@@ -20,8 +20,8 @@ function Main({data, changeBackground}) {
     }, []);
     
 
-    if(datany && datany[0]){
-        const fullName = datany[0].alternativeName;
+    if(datany && datany[a]){
+        const fullName = datany[a].alternativeName;
 
         const parts = fullName.split(':');
         var part1 = parts[0].trim();
@@ -53,15 +53,30 @@ function Main({data, changeBackground}) {
         if(carousel.scrollLeft === 399){
             carousel.scrollLeft = 0
         }
-        changeBackground()
     }
+    
+
+    const pagi = () =>{
+        if(datany && datany[0] && datany[a] && part1.length > 0){
+            return part1
+        }else{
+            return datany && datany[0] && datany[0].name !== null ? datany[0].name : part1
+        }
+    }
+    const pagi2 = () =>{
+        if(datany && datany[0] && datany[a] && part1.length > 0){
+            return part2
+        }
+    }
+
+    pagination (pagi, pagi2)
 
     return ( 
         <div className="main">
             <div className='main__contentblock'>
-                <h1  className='name'>{datany && datany[0] ? part1 : 'STAR WARS'}</h1>
-                <h2 className='name fc50'>{datany && datany[0] ? part2 : 'The rise of somewhere'}</h2>
-                <p id='description'>{datany && datany[0] && datany[0].description.length > 0 ? datany[0].description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, consequuntur, harum officia assumenda repellat numquam dolor cum aliquam sunt commodi quos excepturi provident corrupti aperiam vero minima rerum. Culpa, voluptas.'}</p>
+                <h1  className='name'>{pagi()}</h1>
+                <h2 className='name fc50'>{pagi2()}</h2>
+                <p id='description'>{datany && datany[a] && datany[a].description.length > 0 ? datany[a].description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, consequuntur, harum officia assumenda repellat numquam dolor cum aliquam sunt commodi quos excepturi provident corrupti aperiam vero minima rerum. Culpa, voluptas.'}</p>
                 <a className='stars' href="#"><img className='stars' src={stars} alt="err"/></a>
             </div>
             <div className='main__underblock'>
@@ -83,7 +98,7 @@ function Main({data, changeBackground}) {
                         className='CA'
                         src={item.poster.url}
                         alt="#"
-                        onClick={() => changeBackground(item.poster.url)}
+                        onClick={() => changeBackground(item.backdrop.url, index)}
                         />
                     )) }    
                     </div>

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import Modal from './Modal';
 import arrRight from '../assets/arrow_forward_FILL0_wght400_GRAD0_opsz24.svg';
 
-function Header({setName}) {
+function Header({setName, pagination}) {
     const [movie, setMovie]=useState('');
     const [notActive, setNotActive]=useState(false)
     const [modalActive, setModalActive]=useState(false)
@@ -27,7 +27,9 @@ function Header({setName}) {
         setMovie('')
 
         let inp = document.querySelector('.inp');
-        inp.classList.toggle('inp-v')
+        inp.classList.toggle('inp-v');
+
+        pagination();
     }
     const handlerPress = (e) =>{
         if(e.key === 'Enter'){
