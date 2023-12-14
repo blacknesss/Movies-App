@@ -8,6 +8,7 @@ function Head() {
     const [name, setName]=useState('');
     const [data, setData] = useState([]);
     const [backgroundUrl, setBackgroundUrl] = useState();
+    const [loading, setLoading]=useState(true);
     useEffect(()=>{
         const url = `https://api.kinopoisk.dev/v1.4/movie/search?page=1&limit=8&query=${name}`;
         const options = {
@@ -19,7 +20,10 @@ function Head() {
 
         fetch(url,options)
         .then(res => res.json())
-        .then(res => setData(res))
+        .then(res => {
+            setData(res)
+            setLoading(false)
+        })
         .catch(error => {
             console.error('Ошибка при получении данных', error);
         });
@@ -45,7 +49,7 @@ function Head() {
     return ( 
         <div className="Head" style={{ backgroundImage: `url(${backgroundUrl})` }}>
             <Header pagination={pagination} setName={setName}/>
-            <Main pagination={pagination} a={a} data={data} changeBackground={changeBackground}/>
+            <Main loading={loading} pagination={pagination} a={a} data={data} changeBackground={changeBackground}/>
         </div>
      );
 }

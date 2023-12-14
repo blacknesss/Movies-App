@@ -5,7 +5,7 @@ import arr from '../assets/ic_round-navigate-next.svg';
 import { fetchPopularMovies } from '../services';
 import Modal from './Modal';
 
-function Main({data, changeBackground, a, pagination}) {
+function Main({data, changeBackground, a, pagination, loading}) {
     const [PM, setPM]=useState([])
     const [datany, setDatany] = useState([])
     const [isActive, setIsActive]=useState(false)
@@ -91,7 +91,11 @@ function Main({data, changeBackground, a, pagination}) {
                 <h1 className='PM-text'>Popular Movies</h1>
                 <div className='wrapper-slider'>
                     <div onMouseUp={dragStop} onMouseDown={e => dragStart(e)} onMouseMove={e => dragging(e)} className='PM'>
-                    { PM.map((item, index) => (
+                {loading ? (<div style={{fontSize: '40px', color: 'red'}}>
+                    loading...
+                    please wait
+                </div>) :
+                    ( PM.map((item, index) => (
                         <img
                         id='img'
                         key={index}
@@ -100,7 +104,7 @@ function Main({data, changeBackground, a, pagination}) {
                         alt="#"
                         onClick={() => changeBackground(item.backdrop.url, index)}
                         />
-                    )) }    
+                    )) )}
                     </div>
                     <div onClick={slider} className="arrow">
                         <img src={arr} alt="#" />
