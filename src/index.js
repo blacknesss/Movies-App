@@ -12,9 +12,10 @@ const defaultState = []
 
 const reducer = (state = defaultState, action) => {
     switch (action.type) {
-        case '':
-            return
-    
+        case 'load':
+            return action.payload
+        case 'entering':
+            return action.payload
         default:
             return state;
     }

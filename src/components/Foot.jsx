@@ -3,12 +3,15 @@ import ministar from '../assets/star.svg';
 import { useEffect, useState } from 'react';
 import { fetchWishList } from '../services';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
-function Foot({addToWishlist, isEnter}) {
-    const [movies, setMovies] = useState([]);
+function Foot({addToWishlist}) {
+    
+    const movies = useSelector(state => state)
+    const dispatch = useDispatch()
     
     useEffect(() => {
-        fetchWishList().then((result) => {setMovies(result.docs)});
+        dispatch(fetchWishList())
     }, []);
 
     return ( 
@@ -29,7 +32,7 @@ function Foot({addToWishlist, isEnter}) {
                         <div className='cart__foot'>
                             <img src={add} alt="#" />
                             <Link to='/favorites/'>
-                            <p onClick={()=> addToWishlist(movie)} className="add">{ isEnter ? 'Added' : 'Add to my list'}</p>
+                            <p onClick={()=> addToWishlist(movie, movie.id)} className="add">{ movie.isEnter ? 'Added' : 'Add to my list'}</p>
                             </Link>
                         </div>
                     </div>

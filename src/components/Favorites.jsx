@@ -5,8 +5,12 @@ import arrRight from '../assets/arrow-right.svg';
 import { Flist } from './Flist';
 import { Tvshows } from './Tvshows';
 
-function Favorites({wishlist}) {
-    
+function Favorites({wishlist, dispatching}) {
+    // const delLocalStore = () =>{
+    //     setTimeout(() => {
+    //         localStorage.clear();
+    //       }, 3000);
+    // }
 
     return (
         <div className='fApp'>
@@ -16,7 +20,7 @@ function Favorites({wishlist}) {
                     <div className='nav-r'>
                         <Link className='links' to='/favorites'>Favorites</Link>
                         <Link className='links' to='/favorites/tvshows'>TV Shows</Link>
-                        <Link className='links' to='/'>Suggest me <img src={arrRight} alt="#" /></Link>
+                        <Link onClick={dispatching} className='links' to='/'>Suggest me <img src={arrRight} alt="#" /></Link>
                     </div>
                 </div>
                 <Routes>
