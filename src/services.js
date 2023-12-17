@@ -2,7 +2,7 @@ const url = `https://api.kinopoisk.dev/v1.4/movie/search?page=2&limit=8`;
     const options = {
             method: 'GET',
             headers: {
-                'X-API-KEY': '0VYK7VV-ZHTM3RH-JNX85BN-A5JGDVR'
+                'X-API-KEY': 'N85VFZD-7BK49XJ-N4SVC94-238MPGM'
             }
         };
 
@@ -10,7 +10,7 @@ const ur = `https://api.kinopoisk.dev/v1.4/movie/search?page=1&limit=9`;
     const option = {
             method: 'GET',
             headers: {
-                'X-API-KEY': '0VYK7VV-ZHTM3RH-JNX85BN-A5JGDVR'
+                'X-API-KEY': 'N85VFZD-7BK49XJ-N4SVC94-238MPGM'
             }
         };
 

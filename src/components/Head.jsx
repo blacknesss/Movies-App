@@ -14,7 +14,7 @@ function Head() {
         const options = {
             method: 'GET',
             headers: {
-                'X-API-KEY': '0VYK7VV-ZHTM3RH-JNX85BN-A5JGDVR'
+                'X-API-KEY': 'N85VFZD-7BK49XJ-N4SVC94-238MPGM'
             }
         };
 
