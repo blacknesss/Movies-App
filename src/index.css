@@ -607,7 +607,9 @@ body::-webkit-scrollbar-thumb {
   height: 100px;
 }
 
-
+.active{
+  color: var(--color-active);
+}
 /* модальное окно */
 .modal {
   height: 100vh;

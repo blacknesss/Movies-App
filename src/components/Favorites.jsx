@@ -1,11 +1,11 @@
 import React from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, NavLink } from 'react-router-dom';
 import icon from '../assets/icon.svg';
 import arrRight from '../assets/arrow-right.svg';
 import { Flist } from './Flist';
 import { Tvshows } from './Tvshows';
 
-function Favorites({wishlist, dispatching}) {
+function Favorites({wishlist, dispatching, tvshows}) {
     // const delLocalStore = () =>{
     //     setTimeout(() => {
     //         localStorage.clear();
@@ -18,13 +18,13 @@ function Favorites({wishlist, dispatching}) {
                 <div className='fHeader'>
                     <img src={icon} alt="#" />
                     <div className='nav-r'>
-                        <Link className='links' to='/favorites'>Favorites</Link>
-                        <Link className='links' to='/favorites/tvshows'>TV Shows</Link>
-                        <Link onClick={dispatching} className='links' to='/'>Suggest me <img src={arrRight} alt="#" /></Link>
+                        <NavLink className='links' to='/favorites'>TV Shows</NavLink>
+                        <NavLink className='links' to='/favorites/tvshows'>Favorites</NavLink>
+                        <NavLink onClick={dispatching} className='links' to='/'>Suggest me <img src={arrRight} alt="#" /></NavLink>
                     </div>
                 </div>
                 <Routes>
-                    <Route path='/' element={<Flist wishlist={wishlist}/>}/>
+                    <Route path='/' element={<Flist tvshows={tvshows}/>}/>
                     <Route path='/tvshows' element={<Tvshows wishlist={wishlist}/>}/>
                 </Routes>
                 

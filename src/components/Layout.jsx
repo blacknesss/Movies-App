@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Head from "./Head";
 import Foot from "./Foot";
 
-function Layout({addToWishlist, isEnter}) {
+function Layout({addToWishlist, isEnter, addToTvShows}) {
     
 
 
@@ -11,7 +11,7 @@ function Layout({addToWishlist, isEnter}) {
         <>
         <div className="App">
             <Head />
-            <Foot isEnter={isEnter} addToWishlist={addToWishlist}/>
+            <Foot isEnter={isEnter} addToWishlist={addToWishlist} addToTvShows={addToTvShows}/>
         </div>
         </>
      );

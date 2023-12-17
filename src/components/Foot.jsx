@@ -2,10 +2,10 @@ import add from '../assets/add.svg';
 import ministar from '../assets/star.svg';
 import { useEffect, useState } from 'react';
 import { fetchWishList } from '../services';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-function Foot({addToWishlist}) {
+function Foot({addToWishlist, addToTvShows}) {
     
     const movies = useSelector(state => state)
     const dispatch = useDispatch()
@@ -25,15 +25,15 @@ function Foot({addToWishlist}) {
                             <img src={ministar} alt="#" />
                             <p className="num">{movie.rating.imdb}</p>
                         </div>
-                        <Link id='img-c' to='/favorites/tvshows'>
-                        <img  onClick={() => addToWishlist(movie)} className='BW' src={movie.poster.url} alt="#" />
-                        </Link>
+                        <NavLink id='img-c' to='/favorites/'>
+                        <img  onClick={() => addToTvShows(movie, movie.id)} className='BW' src={movie.poster.url} alt="#" />
+                        </NavLink>
                         <h1 className='cart__h1'>{movie.alternativeName.length <= 0 ? movie.name : movie.alternativeName}</h1>
                         <div className='cart__foot'>
                             <img src={add} alt="#" />
-                            <Link to='/favorites/'>
+                            <NavLink to='/favorites/tvshows'>
                             <p onClick={()=> addToWishlist(movie, movie.id)} className="add">{ movie.isEnter ? 'Added' : 'Add to my list'}</p>
-                            </Link>
+                            </NavLink>
                         </div>
                     </div>
             ))}    

@@ -9,12 +9,15 @@ import { fetchWishList } from './services';
 
 function App() {
   const [wishlist, setWishlist] = useState([]);
-  
+  const [tvshows, setTvShows] = useState([]);
   const dispatch = useDispatch();
   const states = useSelector(state => state);
 
   
-  const dispatching = (movieId) =>{
+  
+  const dispatching = (movie ,movieId) =>{
+        clearTvShows()
+
         setTimeout(() => {
             dispatch({
               type: 'entering',
@@ -25,24 +28,36 @@ function App() {
                 return item
               })
             })
-          }, 3000);
-      }   
+          }, 2000);
+          
+  }   
+
   
+
+  const addToTvShows = (movie) =>{
+      if(!tvshows.some((m) => movie.id === m.id)){
+        setTvShows([...tvshows, movie]);
+      }
+      
+  }
   
-  const addToWishlist = (movie, movieId) => {
+  const clearTvShows = () => {
+    setTvShows([]);
+  };
+  
+  const addToWishlist = (movie) => {
     if (!wishlist.some((m) => m.id === movie.id)) {
       setWishlist([...wishlist, movie]); 
     }
-      dispatching(movieId)
-      // localStorage.setItem(`isEnter_${movieId}`, true);
+      
     return movie
   };
 
   return (
     <>
     <Routes>
-      <Route path="/" element={<Layout addToWishlist={addToWishlist}/>}/>
-      <Route path="/favorites/*" element={<Favorites dispatching={dispatching} wishlist={wishlist}/>}/>
+      <Route path="/" element={<Layout addToWishlist={addToWishlist} addToTvShows={addToTvShows}/>}/>
+      <Route path="/favorites/*" element={<Favorites dispatching={dispatching} wishlist={wishlist} tvshows={tvshows}/>}/>
     </Routes>
     </>
   );
