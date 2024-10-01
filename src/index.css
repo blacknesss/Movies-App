@@ -5,9 +5,6 @@
 .body{
     overflow: hidden;
 }
-.upper{
-    background-image: url(./assets/365f6fd1725123369f147ac80ea0c43b.png);
-}
 .container{
     max-width: 1440px;
     margin: 0 auto;
@@ -92,9 +89,12 @@
     font-size: 18px;
     font-weight: 500;
     line-height: 150%;
+    max-width: 550px;
 }
-.main__center__stars{
-    
+.main__center__stars:hover{
+    transform: scale(1.1);
+    transition: all .3s ease-in;
+    cursor: pointer;
 }
 .main__center__btns{
     display: flex;
@@ -113,6 +113,9 @@
     background-color: rgb(250, 71, 118);
     padding: 17px 30px;
 }
+.main__center__btns__btn1:hover{
+    background-color: #000000b4;
+}
 .main__center__btns__btn2{
     color: rgb(255, 255, 255);
     font-family: Outfit;
@@ -123,10 +126,15 @@
     border-radius: 41px;
     padding: 13px 30px;
 }
+.main__center__btns__btn2:hover{
+    background-color: #ffffff88;
+    color: #000;
+}
 
 /* slider */
 .slider{
-    padding: 50px 0;
+    padding: 0 0;
+    transform: translateY(90px);
 }
 .slider__h1{
     color: rgb(255, 255, 255);
@@ -142,7 +150,7 @@
     align-items: center;
 }
 .window{
-    width: 100%;
+    min-width: 100%;
     height: 100%;
     display: flex;
     padding: 15px 19px;
@@ -156,18 +164,26 @@
 .all-pages-container{
     height: 100%;
     display: flex;
-    column-gap: 40px;
+    column-gap: 54px;
     justify-content: space-between;
-
     transition: transform .3s ease-in-out;
 }
 .main-block__div{
     min-width: 182px;
+    max-width: 182px;
     min-height: 256px;
+    max-height: 256px;
+    transition: transform .3s ease;
 }
 .main-block__div img{
+    cursor: pointer;
+    border-radius: 24px;
     width: 100%;
     height: 100%;
+}
+.main-block__div:hover{
+    transform: scale(1.1);
+    z-index: 10;
 }
 .arrRight{
     cursor: pointer;
@@ -176,6 +192,28 @@
 
 /* under */
 .under{
+    padding-top: 222px;
     background-color: #000;
+    color: #fff;
+}
+.under__h1{
+    color: rgb(235, 238, 245);
+    font-family: Poppins;
+    font-size: 64px;
+    font-weight: 600;
+}
+.under__gridblock{
+
+}
+.under__gridblock__current{
+    position: relative;
+    padding: 8px 8px 8px 10px;
+}
+.star{
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    display: flex;
+    column-gap: 5px;
 }
 /* ------------- */

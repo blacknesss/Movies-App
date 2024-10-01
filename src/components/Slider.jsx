@@ -5,16 +5,18 @@ export default function Slider({children}) {
 
   const [pages,setPages] = useState([])
   useEffect (() =>{
+
     setPages(
       Children.map(children, child =>{
         return cloneElement(child)
       })
     )
-  },[])
+  },[children]) //надо было просто добавить это в массив зависимостей
+  
 
   const [offset, setOffset] = useState(0);
 
-  const pageWidth = 222;
+  const pageWidth = 236; //min-width + col-gap
 
   const handleRightClick = () => {
     setOffset((curr) => {
@@ -22,7 +24,7 @@ export default function Slider({children}) {
       let newOffset = curr - pageWidth;
       
       const maxOffset = -(pageWidth * (pages.length - 6));
-      console.log(newOffset, maxOffset);
+      
       
       if (newOffset < maxOffset){
         return newOffset = 0
