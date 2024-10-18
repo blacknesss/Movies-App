@@ -5,14 +5,17 @@ import search from './assets/eva_search-fill.svg';
 import notion from './assets/Vector.svg';
 import btnIcon from './assets/Polygon 1.svg';
 import stars from './assets/Group 2.svg';
-import rec from './assets/Rectangle 11.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchData } from './asyncActions/data';
-
+import star from './assets/star.svg';
+import lines from './assets/add.svg';
+import lines_post from './assets/add-post.png';
+import {animateScroll as scroll} from 'react-scroll';
 
 export default function App() {
   const [value, setValue] = useState('');
-  const [isTouch, setIsTouch] = useState(false);
+  const [isTouch, setIsTouch] = useState(true);
+  const [myList, setMyList] = useState([]);
 
   const dispatch = useDispatch();
   const data = useSelector(state => state.data);
@@ -22,9 +25,37 @@ export default function App() {
     dispatch(fetchData())
   },[dispatch]);
   
-  console.log(data);
+  const handleClick = (index) => {
+    setMyList((prevState) =>{
+      const newState = [...prevState]
+      newState[index] = !newState[index]
+      return newState;
+    })
+  }
   
-  
+  useEffect(() => {
+    const handleWheel = (event) => {
+      if (event.deltaY > 0) {
+        // Прокрутка вниз — прокручиваем в самый низ
+        scroll.scrollToBottom({
+          duration: 1000, // Время прокрутки в мс
+          smooth: true,
+        });
+      } else if (event.deltaY < 0) {
+        // Прокрутка вверх — прокручиваем в самый верх
+        scroll.scrollToTop({
+          duration: 1000,
+          smooth: true,
+        });
+      }
+    };
+
+    window.addEventListener("wheel", handleWheel);
+
+    return () => {
+      window.removeEventListener("wheel", handleWheel);
+    };
+  }, []);
 
   return (
     <>
@@ -84,18 +115,22 @@ export default function App() {
         <div className="container">
           <h1 className='under__h1'>Movies</h1>
           <div className="under__gridblock">
-            <div className='under__gridblock__current'>
+            {!isLoading ? <div>loading</div> : data.map((item, i) =>(
+            <div key={i} className='under__gridblock__current'>
                 <span className='star'>
-                  <img src="" alt="" />
-                  <p></p>
+                  <img src={star} alt="#" />
+                  <p>{item?.rating?.imdb}</p>
                 </span>
-                <img src="" alt="" />
-                <h3></h3>
-                <span>
-                  <img src="" alt="" />
-                  <p>Add to my list</p>
+                <img src={item?.poster?.url} className='current__poster' alt="#" />
+                <h3 className='current__name'>{item?.alternativeName || item?.name}</h3>
+                <span className='current__foot'>
+                  <img style={{cursor: 'pointer'}} onClick={() => handleClick(i)} src={lines} alt="#" />
+                  <p onClick={() => handleClick(i)}>
+                    {myList[i] ? 'added' : 'Add to my list'}
+                  </p>
                 </span>
-            </div>
+            </div>)
+            )}
           </div>
         </div>
       </div>

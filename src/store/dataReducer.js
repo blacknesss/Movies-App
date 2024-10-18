@@ -5,7 +5,7 @@ const DATA = 'DATA';
 export const dataReducer = (state = initialState, action) => {
     switch (action.type){
         case DATA:
-            return [...state, ...action.payload]
+            return [...action.payload]
         default:
             return state
     }

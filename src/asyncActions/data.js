@@ -5,7 +5,7 @@ const url = `https://api.kinopoisk.dev/v1.4/movie/search?`;
 const options = {
     method: 'GET',
     headers: {
-        'X-API-KEY': 'K0SQHHX-CND4NBG-JNZ25MN-G7E3MDX'
+        'X-API-KEY': 'N85VFZD-7BK49XJ-N4SVC94-238MPGM'
     }
 };
 
